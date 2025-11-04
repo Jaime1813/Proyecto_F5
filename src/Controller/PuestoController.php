@@ -3,17 +3,33 @@
 namespace App\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\HttpFoundation\JsonResponse;
-use Symfony\Component\Routing\Attribute\Route;
+use App\Entity\Puesto;
+use App\Form\PuestoType;
+use Doctrine\ORM\EntityManagerInterface;
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 
-final class PuestoController extends AbstractController
-{
-    #[Route('/puesto', name: 'app_puesto')]
-    public function index(): JsonResponse
+final class PuestoController extends AbstractController{
+    public function nuevo(Request $request, EntityManagerInterface $em): Response
     {
-        return $this->json([
-            'message' => 'Welcome to your new controller!',
-            'path' => 'src/Controller/PuestoController.php',
+        $puesto = new Puesto();
+        $form = $this->createForm(PuestoType::class, $puesto);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $em->persist($puesto);
+            $em->flush();
+
+            return $this->redirectToRoute('puesto_exito');
+        }
+
+        return $this->render('puesto/form.html.twig', [
+            'form' => $form->createView(),
         ]);
+    }
+
+    public function exito(): Response
+    {
+        return new Response('<h2>Puesto guardado correctamente</h2>');
     }
 }
