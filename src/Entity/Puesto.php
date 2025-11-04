@@ -15,7 +15,7 @@ class Puesto
     private ?int $id = null;
 
     #[ORM\Column]
-    private ?int $puesto = null;
+    private ?int $numero = null;
 
     #[ORM\Column(type: Types::ARRAY)]
     private array $ocupacion = [];
@@ -23,31 +23,19 @@ class Puesto
     #[ORM\Column(type: Types::TEXT, nullable: true)]
     private ?string $observacion = null;
 
-    #[ORM\ManyToOne(inversedBy: 'puestos')]
-    private ?Localizacion $localizacion = null;
-
-    #[ORM\ManyToOne(inversedBy: 'puestos')]
-    private ?Personaje $personaje = null;
-
-    #[ORM\Column(type: Types::ARRAY, nullable: true)]
-    private ?array $armas = null;
-
-    #[ORM\Column(type: Types::ARRAY, nullable: true)]
-    private ?array $tipoZombie = null;
-
     public function getId(): ?int
     {
         return $this->id;
     }
 
-    public function getPuesto(): ?int
+    public function getnumero(): ?int
     {
-        return $this->puesto;
+        return $this->numero;
     }
 
-    public function setPuesto(int $puesto): static
+    public function setNumero(int $numero): static
     {
-        $this->puesto = $puesto;
+        $this->numero = $numero;
 
         return $this;
     }
@@ -72,54 +60,6 @@ class Puesto
     public function setObservacion(?string $observacion): static
     {
         $this->observacion = $observacion;
-
-        return $this;
-    }
-
-    public function getLocalizacion(): ?Localizacion
-    {
-        return $this->localizacion;
-    }
-
-    public function setLocalizacion(?Localizacion $localizacion): static
-    {
-        $this->localizacion = $localizacion;
-
-        return $this;
-    }
-
-    public function getPersonaje(): ?Personaje
-    {
-        return $this->personaje;
-    }
-
-    public function setPersonaje(?Personaje $personaje): static
-    {
-        $this->personaje = $personaje;
-
-        return $this;
-    }
-
-    public function getArmas(): ?array
-    {
-        return $this->armas;
-    }
-
-    public function setArmas(?array $armas): static
-    {
-        $this->armas = $armas;
-
-        return $this;
-    }
-
-    public function getTipoZombie(): ?array
-    {
-        return $this->tipoZombie;
-    }
-
-    public function setTipoZombie(?array $tipoZombie): static
-    {
-        $this->tipoZombie = $tipoZombie;
 
         return $this;
     }
