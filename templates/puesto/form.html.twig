@@ -1,0 +1,16 @@
+{{ form_start(form) }}
+    {{ form_row(form.numero) }}
+    {{ form_row(form.localizacion) }}
+    {{ form_row(form.ocupacion) }}
+    {% if form.personaje is defined %}
+        {{ form_row(form.personaje) }}
+    {% endif %}
+    {% if form.armas is defined %}
+        {{ form_row(form.armas) }}
+    {% endif %}
+    {% if form.tipoZombie is defined %}
+        {{ form_row(form.tipoZombie) }}
+    {% endif %}
+    {{ form_row(form.observacion) }}
+    <button type="submit">Guardar</button>
+{{ form_end(form) }}

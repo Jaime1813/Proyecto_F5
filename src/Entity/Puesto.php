@@ -63,4 +63,18 @@ class Puesto
 
         return $this;
     }
+    
+    private ?string $localizacion = null;
+
+    public function getLocalizacion(): ?string
+    {
+        return $this->localizacion;
+    }
+
+    public function setLocalizacion(?string $localizacion): static
+    {
+        $this->localizacion = $localizacion;
+        return $this;
+    }
+
 }
