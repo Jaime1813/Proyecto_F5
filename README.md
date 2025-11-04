@@ -63,7 +63,7 @@ docker exec php php bin/console doctrine:migrations:migrate
 http://localhost:8080
 
 # Entidad	Relación con	Tipo de relación
-# Localizacion | Puesto | ManyToMany
-# Puesto | Localizacion | ManyToMany
-# Puesto | Personaje | ManyToOne
-# Personaje | Puesto | OneToMany
+- Localizacion | Puesto | ManyToMany
+- Puesto | Localizacion | ManyToMany
+- Puesto | Personaje | ManyToOne
+- Personaje | Puesto | OneToMany
