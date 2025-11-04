@@ -13,12 +13,22 @@ Este proyecto es una aplicación web desarrollada con Symfony para gestionar pue
 
 ## Instalación sin Docker
 
-
+## Clona el repositorio
 git clone https://github.com/tu-usuario/Proyecto_F5.git
+
+##Desplazarse en la ruta del proyecto
 cd Proyecto_F5
+
+##Instalar composer para Synfony
 composer install
+
+##Crear la base de datos
 php bin/console doctrine:database:create
+
+## crea con las entidades o modifica las tablas de la base de datos
 php bin/console doctrine:migrations:migrate
+
+##Arrancar el Synfony
 symfony server:start
 
 ## Instalación y ejecución con Docker
@@ -35,7 +45,7 @@ git clone https://github.com/tu-usuario/Proyecto_F5.git
 cd Proyecto_F5
 
 # Copia el archivo de entorno
-cp .env.docker .env
+.env.example y reniombrerlo a .env en el directorio raiz de la app
 
 # Levanta los contenedores
 docker-compose up -d
@@ -51,3 +61,9 @@ docker exec php php bin/console doctrine:migrations:migrate
 
 # Accede a la app en el navegador
 http://localhost:8080
+
+Entidad	Relación con	Tipo de relación
+Localizacion	Puesto	ManyToMany
+Puesto	Localizacion	ManyToMany
+Puesto	Personaje	ManyToOne
+Personaje	Puesto	OneToMany
