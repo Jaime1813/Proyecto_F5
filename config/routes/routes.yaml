@@ -1,0 +1,7 @@
+puesto_nuevo:
+    path: /puesto/nuevo
+    controller: App\Controller\PuestoController::nuevo
+
+puesto_exito:
+    path: /puesto/exito
+    controller: App\Controller\PuestoController::exito
