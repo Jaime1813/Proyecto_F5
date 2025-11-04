@@ -14,7 +14,7 @@ Este proyecto es una aplicación web desarrollada con Symfony para gestionar pue
 ## Instalación sin Docker
 
 ## Clona el repositorio
-git clone https://github.com/tu-usuario/Proyecto_F5.git
+git clone https://github.com/Jaime1813/Proyecto_F5.git
 
 ##Desplazarse en la ruta del proyecto
 cd Proyecto_F5
