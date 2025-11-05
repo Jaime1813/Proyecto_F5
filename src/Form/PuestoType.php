@@ -3,6 +3,8 @@
 namespace App\Form;
 
 use App\Entity\Puesto;
+use App\Entity\Personaje;
+use App\Entity\Localizacion;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -13,9 +15,6 @@ use Symfony\Component\Form\Extension\Core\Type\CollectionType;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\FormEvent;
 use Symfony\Component\Form\FormEvents;
-use App\Entity\Personaje;
-use App\Entity\Localizacion;
-
 
 class PuestoType extends AbstractType
 {

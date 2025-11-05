@@ -14,16 +14,19 @@ class AppFixtures extends Fixture
     {
         // $product = new Product();
         // $manager->persist($product);
-        for ($i = 1; $i <= 2; $i++) {
-            $localizacion = new localizacion();
-            $localizacion->setNombre("Estadio WLF");
+        
+        $localizaciones = ['Estadio WLF','Hospital de Seattle','Estación de radio','Hillcrest','Acuario','Túneles del metro','Barrio de Capitol Hill','Colegio'];
+        foreach ($localizaciones as $nombre) {
+            $localizacion = new Localizacion();
+            $localizacion->setNombre($nombre);
             $manager->persist($localizacion);
         }
 
-        for ($i = 1; $i <= 2; $i++) {
-            $personaje = new personaje();
-            $personaje->setNombre("Abby");
-            $personaje->setDescripcion("");
+        $personajes = ['Abby','Manny','Nora','Mel','Owen','Isaac','Jordan','Leah'];
+        foreach ($personajes as $nombre) {
+            $personaje = new Personaje();
+            $personaje->setNombre($nombre);
+            $personaje->setDescripcion("Descripción de $nombre");
             $manager->persist($personaje);
         }
 
